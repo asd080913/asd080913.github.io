@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doki Doki Literature Club!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffb6c1, #ffe4e1);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .container {
+      padding: 60px 20px 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #c71585;
+      font-size: 2.5em;
+      margin-bottom: 0.3em;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+    }
+    h2 {
+      color: #8b008b;
+      font-size: 1.2em;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+    .button,
+    .dropdown-toggle {
+      display: inline-block;
+      margin: 12px auto;
+      padding: 12px 20px;
+      background-color: #ff69b4;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+      max-width: 90%;
+      width: 90%;
+      cursor: pointer;
+    }
+    .button:hover,
+    .dropdown-toggle:hover {
+      background-color: #ff1493;
+    }
+    .dropdown {
+      margin-top: 20px;
+    }
+    .dropdown-content {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .dropdown-content a {
+      background-color: #ffa6c9;
+      color: white;
+      padding: 10px 16px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    .dropdown-content a:hover {
+      background-color: #ff5e9c;
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 2em; }
+      h2 { font-size: 1em; }
+      .button, .dropdown-toggle {
+        font-size: 0.95em;
+        padding: 10px 16px;
+      }
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 90%;
+      width: 360px;
+      text-align: left;
+      color: #333;
+      line-height: 1.6;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      background: none;
+      border: none;
+      font-size: 1.2em;
+      cursor: pointer;
+      color: #888;
+    }
+    .close-btn:hover {
+      color: #ff69b4;
+    }
+  </style>
+  <script>
+    function toggleDropdown(id) {
+      const content = document.getElementById(id);
+      content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    }
+    function showModal() {
+      document.getElementById("aboutModal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("aboutModal").style.display = "none";
+    }
+    window.onclick = function(event) {
+      const modal = document.getElementById("aboutModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Doki Doki Literature Club!</h1>
+    <h2>欢迎来到 Doki Doki Literature Club! 新手网站，此网站仅提供教程向的内容</h2>
+    <a class="button" href="https://forum.monika.love/?sort=newest&q=mas%E7%A7%BB%E6%A4%8D" target="_blank">想要了解 DDLC？点击前往 DDLC 中文论坛</a>
+    <a class="button" href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://ddlc.plus/&ved=2ahUKEwiizrzJj5iOAxWlslYBHcsUKAYQFnoECBkQAQ&usg=AOvVaw0iIhDL5XVFKWzcE_pxaHnZ" target="_blank">这里是官方网站哦 记得用谷歌浏览器打开ε٩(๑> ₃ <)۶з</a>
+    <div class="dropdown">
+      <button class="dropdown-toggle" onclick="toggleDropdown('official-options')">支持正版游戏哦（请下载Steam和使用谷歌浏览器打开）</button>
+      <div class="dropdown-content" id="official-options">
+        <a href="https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/" target="_blank">DDLC 原版（免费，需中文补丁）</a>
+        <a href="https://store.steampowered.com/app/1388880/Doki_Doki_Literature_Club_Plus/" target="_blank">DDLC Plus（付费，含官方中文）</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle" onclick="toggleDropdown('afterstory-options')">想要了解之后的故事？</button>
+      <div class="dropdown-content" id="afterstory-options">
+        <a href="https://www.monikaafterstory.com/" target="_blank">前往 Monika After Story（官方PC版）</a>
+        <a href="https://disk.monika.love/s/GVu5?path=%2F%E6%95%B4%E5%90%88%E5%8C%85%E7%89%88" target="_blank">前往 Monika After Story（非官方莫盘PE版）</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-toggle" onclick="toggleDropdown('about-options')">关于我们？</button>
+      <div class="dropdown-content" id="about-options">
+        <a href="#" onclick="showModal()">关于网站制作者……</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="aboutModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">✖</button>
+      <h3>关于网站制作者</h3>
+      <p>此网站完全由个人制作，无任何收费，无任何商业用途。</p>
+      <p>网站是莫妮卡在维护（认真）</p>
+      <p>如果出现问题请联系我：</p>
+      <p>VX：cqy20061011CQY<br>QQ：3372468962<br>推特：我不会开VPN过日常的…… 所以没有</p>
+      <p>总之这个网站就是一个让新人快速了解DDLC的中转站。如果觉得不错的话请分享给身边的吧，谢谢大家！</p>
+    </div>
+  </div>
+</body>
+</html>
